@@ -34,3 +34,27 @@
 2021-06-23 19:14:06,752 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
 2021-06-23 19:14:06,777 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Sureliving\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
 2021-06-23 19:14:09,020 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:40:42,219 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:40:42,266 INFO i.g.b.w.WebDriverManager [main] Reading https://chromedriver.storage.googleapis.com/ to seek chromedriver
+2021-06-23 23:40:43,000 INFO i.g.b.w.o.Downloader [main] Downloading https://chromedriver.storage.googleapis.com/91.0.4472.101/chromedriver_win32.zip
+2021-06-23 23:40:44,875 INFO i.g.b.w.o.Downloader [main] Extracting driver from compressed file chromedriver_win32.zip
+2021-06-23 23:40:44,984 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:40:51,069 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:44:15,406 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:44:15,437 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:44:19,126 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:48:31,535 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:48:31,582 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:48:37,856 INFO r.o.TestHW [main] Р”СЂР°Р№РІРµСЂ РїРѕРґРЅСЏС‚
+2021-06-23 23:50:18,791 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:50:18,822 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:50:25,362 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:53:07,672 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:53:07,719 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:53:18,152 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:55:00,960 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:55:00,991 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:55:04,076 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:58:56,019 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:58:56,050 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:58:59,252 INFO r.o.TestHW [main] Драйвер поднят

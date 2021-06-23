@@ -10,3 +10,9 @@
 2021-06-23 19:15:09,809 INFO r.o.Otus [main] Running tests!
 2021-06-23 19:17:07,169 INFO r.o.Otus [main] Running tests!
 2021-06-23 20:11:35,092 INFO r.o.Otus [main] Running tests!
+2021-06-23 23:47:37,400 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:47:37,463 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:47:41,132 INFO r.o.TestHW [main] Драйвер поднят
+2021-06-23 23:57:42,805 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-23 23:57:42,836 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-23 23:57:46,412 INFO r.o.TestHW [main] Драйвер поднят
