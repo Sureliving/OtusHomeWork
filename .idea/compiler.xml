@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="owner" />
         <module name="model" />
         <module name="tests-junit" />
         <module name="tests-testng" />
@@ -14,6 +15,7 @@
     <bytecodeTargetLevel>
       <module name="homeWork" target="8" />
       <module name="model" target="8" />
+      <module name="owner" target="8" />
       <module name="tests-junit" target="8" />
       <module name="tests-testng" target="8" />
     </bytecodeTargetLevel>

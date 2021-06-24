@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/homeWork.iml" filepath="$PROJECT_DIR$/homeWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/owner/owner.iml" filepath="$PROJECT_DIR$/owner/owner.iml" />
       <module fileurl="file://$PROJECT_DIR$/tests-junit/tests-junit.iml" filepath="$PROJECT_DIR$/tests-junit/tests-junit.iml" />
       <module fileurl="file://$PROJECT_DIR$/tests-testng/tests-testng.iml" filepath="$PROJECT_DIR$/tests-testng/tests-testng.iml" />
     </modules>

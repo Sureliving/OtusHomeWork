@@ -23,7 +23,6 @@ public class TestHW {
 
     @Before
     public void setUp() {
-        //System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, "D:\\projects\\chromedriver_win32\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
