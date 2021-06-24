@@ -26,31 +26,31 @@ public class TestHW {
         ChromeOptions options = new ChromeOptions();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
-        logger.info("Драйвер поднят");
+        logger.info("Driver loaded");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @Test
-    public void testOtusContacts() {
-        logger.info("Домашнее задание 1");
+    public void testHomeWork1() {
+        logger.info("Home work #1");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
-        logger.info("Установка ожиданий выполнена");
+        logger.info("Timeouts are configured");
 
         driver.get("http://www.otus.ru/");
-        logger.info("Страница загружена");
+        logger.info("Page load is complete");
 
         String actualTitle = driver.getTitle();
-        logger.info("Заголовок получен");
+        logger.info("Title is received");
 
         String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
         if (actualTitle.equals(expectedTitle)) {
-            logger.info("Заголовок соответствует ожидаемому");
+            logger.info("The title is as expected");
         } else {
             assertEquals(expectedTitle, actualTitle);
-            logger.info("Заголовок не соответствует ожидаемому");
+            logger.info("The title is not as expected");
         }
     }
 

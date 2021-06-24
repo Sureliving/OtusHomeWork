@@ -1,8 +1,8 @@
-2021-06-24 12:55:58,095 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
-2021-06-24 12:55:58,117 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Sureliving\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
-2021-06-24 12:56:00,330 INFO r.o.TestHW [main] Драйвер поднят
-2021-06-24 12:56:00,347 INFO r.o.TestHW [main] Домашнее задание 1
-2021-06-24 12:56:00,507 INFO r.o.TestHW [main] Установка ожиданий выполнена
-2021-06-24 12:56:02,978 INFO r.o.TestHW [main] Страница загружена
-2021-06-24 12:56:02,989 INFO r.o.TestHW [main] Заголовок получен
-2021-06-24 12:56:02,989 INFO r.o.TestHW [main] Заголовок соответствует ожидаемому
+2021-06-24 13:11:51,670 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-06-24 13:11:51,685 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Sureliving\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-06-24 13:11:54,432 INFO r.o.TestHW [main] Driver loaded
+2021-06-24 13:11:54,448 INFO r.o.TestHW [main] Home work #1
+2021-06-24 13:11:54,621 INFO r.o.TestHW [main] Wait are configured
+2021-06-24 13:11:57,795 INFO r.o.TestHW [main] Page load complete
+2021-06-24 13:11:57,807 INFO r.o.TestHW [main] Title is received
+2021-06-24 13:11:57,807 INFO r.o.TestHW [main] The title is as expected
