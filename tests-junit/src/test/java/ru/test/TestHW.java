@@ -32,15 +32,26 @@ public class TestHW {
 
     @Test
     public void testOtusContacts() {
+        logger.info("Домашнее задание 1");
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
+        logger.info("Установка ожиданий выполнена");
 
         driver.get("http://www.otus.ru/");
+        logger.info("Страница загружена");
 
         String actualTitle = driver.getTitle();
+        logger.info("Заголовок получен");
+
         String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
-        assertEquals(expectedTitle,actualTitle);
+        if (actualTitle.equals(expectedTitle)) {
+            logger.info("Заголовок соответствует ожидаемому");
+        } else {
+            assertEquals(expectedTitle, actualTitle);
+            logger.info("Заголовок не соответствует ожидаемому");
+        }
     }
 
     @After
