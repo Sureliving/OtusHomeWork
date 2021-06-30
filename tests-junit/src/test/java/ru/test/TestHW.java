@@ -34,7 +34,7 @@ public class TestHW {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class TestHW {
     public void testHomeWork2_2() {
         logger.info("Home work #1 part 2");
         //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
@@ -130,13 +130,10 @@ public class TestHW {
             element = driver.findElement(By.xpath("//div[@class='text-field-holder']/input[@class='text-field']"));
 
             element.sendKeys("97");
-            By locator = By.xpath("//div[@class='numbers-slider-wrap']/div[@class='numbers-slider']");
             logger.info("Before wait");
-            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            wait.until(x -> (((JavascriptExecutor) driver).executeScript("return window.jQuery != undefined && jQuery.active === 0")));
 
-            //wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-
-            logger.info("Changes are waited -->" + driver.findElements(locator).size());
+            logger.info("Changes have taken place");
             File screenshot = ((TakesScreenshot) driver).
                     getScreenshotAs(OutputType.FILE);
             String path = "d:/screenshots/" + screenshot.getName();
