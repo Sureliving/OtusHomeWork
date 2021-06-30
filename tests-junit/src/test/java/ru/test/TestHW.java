@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -16,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
@@ -32,13 +34,13 @@ public class TestHW {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     @Test
     public void testHomeWork1() {
         logger.info("Home work #1");
-
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
@@ -62,6 +64,7 @@ public class TestHW {
     @Test
     public void testHomeWork2_1() {
         logger.info("Home work #1 part 1");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
@@ -113,6 +116,7 @@ public class TestHW {
     @Test
     public void testHomeWork2_2() {
         logger.info("Home work #1 part 2");
+        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
@@ -123,18 +127,22 @@ public class TestHW {
 
         WebElement element;
         try {
-            WebElement expectedElement = driver.findElement(By.xpath("//div[@class='new-number-block']/div[@class='catalog-numbers with-overlay overlay-big']"));
             element = driver.findElement(By.xpath("//div[@class='text-field-holder']/input[@class='text-field']"));
-            element.sendKeys("97");
-            //wait.until(ExpectedConditions.stalenessOf(expectedElement));
-            wait.until(ExpectedConditions.refreshed();
-            expectedElement = driver.findElement(By.xpath("//div[@class='new-number-block']/div[@class='catalog-numbers with-overlay overlay-big']"));
 
+            element.sendKeys("97");
+            By locator = By.xpath("//div[@class='numbers-slider-wrap']/div[@class='numbers-slider']");
+            logger.info("Before wait");
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+            //wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+
+            logger.info("Changes are waited -->" + driver.findElements(locator).size());
             File screenshot = ((TakesScreenshot) driver).
                     getScreenshotAs(OutputType.FILE);
             String path = "d:/screenshots/" + screenshot.getName();
             FileUtils.copyFile(screenshot, new File(path));
 
+            logger.info("Screenshot saved");
         } catch (NoSuchElementException ignored) {
             logger.info("Target (address) element doesn't exist");
             assert false;
