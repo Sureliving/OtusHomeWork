@@ -1,9 +1,9 @@
-2021-06-30 23:18:31,159 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
-2021-06-30 23:18:31,190 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
-2021-06-30 23:18:34,827 INFO r.o.TestHW [main] Driver loaded
-2021-06-30 23:18:34,851 INFO r.o.TestHW [main] Home work #1 part 2
-2021-06-30 23:18:35,056 INFO r.o.TestHW [main] Timeouts are configured
-2021-06-30 23:18:46,760 INFO r.o.TestHW [main] Tele2 numbers page load is complete
-2021-06-30 23:18:47,396 INFO r.o.TestHW [main] Before wait
-2021-06-30 23:18:50,974 INFO r.o.TestHW [main] Changes are waited
-2021-06-30 23:18:51,182 INFO r.o.TestHW [main] Screenshot saved
+2021-07-07 06:33:57,614 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-07-07 06:33:57,641 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-07-07 06:34:00,750 INFO r.o.TestHW [main] Driver loaded
+2021-07-07 06:34:00,767 INFO r.o.TestHW [main] Home work #2 part 3
+2021-07-07 06:34:00,949 INFO r.o.TestHW [main] Timeouts are configured
+2021-07-07 06:34:05,119 INFO r.o.TestHW [main] Root page load is complete
+2021-07-07 06:34:07,668 INFO r.o.TestHW [main] Target (FAQ) page load is complete
+2021-07-07 06:34:08,299 INFO r.o.TestHW [main] Target (text) load is complete
+2021-07-07 06:34:13,561 INFO r.o.TestHW [main] Target (text) is displayed

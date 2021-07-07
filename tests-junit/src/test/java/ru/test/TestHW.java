@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 
@@ -31,6 +31,7 @@ public class TestHW {
     @Before
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-gpu");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
@@ -40,9 +41,9 @@ public class TestHW {
     @Test
     public void testHomeWork1() {
         logger.info("Home work #1");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(7));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(7));
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -74,11 +75,11 @@ public class TestHW {
         logger.info("Root page load is complete");
 
         WebElement element;
-
+        String xPath;
         try {
-            element = driver.findElement(By.xpath("//div[@class='header2_subheader-container header2_subheader-container__inline']/a[@title='Контакты']"));
-            JavascriptExecutor executor = (JavascriptExecutor) driver;
-            executor.executeScript("arguments[0].click();", element);
+            xPath = "//div[@class='header2_subheader-container header2_subheader-container__inline']/a[@title='Контакты']";
+            element = driver.findElement(By.xpath(xPath));
+            element.click();
             logger.info("Target (contacts) page load is complete");
 
             try {
@@ -93,7 +94,7 @@ public class TestHW {
                     assertEquals(expectedAddress, actualAddress);
                 }
             } catch (NoSuchElementException ignored) {
-                logger.info("Target (address) element doesn't exist");
+                logger.error("Target (address) element doesn't exist");
                 assert false;
             }
 
@@ -108,7 +109,7 @@ public class TestHW {
             }
 
         } catch (NoSuchElementException ignored) {
-            logger.info("Target (contacts) page doesn't exist");
+            logger.error("Target (contacts) page doesn't exist");
             assert false;
         }
     }
@@ -116,8 +117,6 @@ public class TestHW {
     @Test
     public void testHomeWork2_2() {
         logger.info("Home work #1 part 2");
-        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
@@ -141,10 +140,60 @@ public class TestHW {
 
             logger.info("Screenshot saved");
         } catch (NoSuchElementException ignored) {
-            logger.info("Target (address) element doesn't exist");
+            logger.error("Target (address) element doesn't exist");
             assert false;
         } catch (IOException ignored) {
-            logger.info("Access to file denied");
+            logger.error("Access to file denied");
+        }
+    }
+
+    @Test
+    public void testHomeWork2_3() {
+        logger.info("Home work #2 part 3");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(5));
+        driver.manage().window().maximize();
+        logger.info("Timeouts are configured");
+
+
+        driver.get("http://www.otus.ru/");
+        logger.info("Root page load is complete");
+
+        WebElement element;
+        String xPath;
+
+        try {
+            xPath = "//div[@class='header2_subheader-container header2_subheader-container__inline']/a[@title='FAQ']";
+            element = driver.findElement(By.xpath(xPath));
+            element.click();
+            logger.info("Target (FAQ) page load is complete");
+
+        } catch (NoSuchElementException e) {
+            logger.error("Target (FAQ) page doesn't exist");
+            assert false;
+        }
+
+        try {
+            xPath = "//div[@class='faq-question js-faq-question']/div[contains(text(), 'Где посмотреть программу интересующего курса?')]";
+            element = driver.findElement(By.xpath(xPath));
+            element.click();
+            logger.info("Target (text) load is complete");
+        } catch (NoSuchElementException e) {
+            logger.error("Target bottom doesn't exist");
+            assert false;
+        }
+
+        try {
+            String expectedText = "Программу курса в сжатом виде можно увидеть на странице курса после блока с преподавателями. Подробную программу курса можно скачать кликнув на “Скачать подробную программу курса”";
+            xPath = "//div[@class='faq-question js-faq-question']/div[contains(text(), '" + expectedText + "')]";
+            //element = driver.findElement(By.xpath(xPath));
+            assertTrue(driver.findElement(By.xpath(xPath)).isDisplayed());
+            Thread.sleep(5000);
+            logger.info("Target (text) is displayed");
+        } catch (NoSuchElementException | InterruptedException e) {
+            logger.error("Target text doesn't exist");
+            assert false;
         }
     }
 
