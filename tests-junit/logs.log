@@ -1,9 +1,8 @@
-2021-07-07 06:33:57,614 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
-2021-07-07 06:33:57,641 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
-2021-07-07 06:34:00,750 INFO r.o.TestHW [main] Driver loaded
-2021-07-07 06:34:00,767 INFO r.o.TestHW [main] Home work #2 part 3
-2021-07-07 06:34:00,949 INFO r.o.TestHW [main] Timeouts are configured
-2021-07-07 06:34:05,119 INFO r.o.TestHW [main] Root page load is complete
-2021-07-07 06:34:07,668 INFO r.o.TestHW [main] Target (FAQ) page load is complete
-2021-07-07 06:34:08,299 INFO r.o.TestHW [main] Target (text) load is complete
-2021-07-07 06:34:13,561 INFO r.o.TestHW [main] Target (text) is displayed
+2021-07-08 06:44:18,308 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-07-08 06:44:18,335 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-07-08 06:44:23,729 INFO r.o.TestHW [main] Driver loaded
+2021-07-08 06:44:23,753 INFO r.o.TestHW [main] Home work #2 part 4
+2021-07-08 06:44:23,959 INFO r.o.TestHW [main] Timeouts are configured
+2021-07-08 06:44:28,288 INFO r.o.TestHW [main] Root page load is complete
+2021-07-08 06:44:29,205 INFO r.o.TestHW [main] Target (subscribe field) was filled
+2021-07-08 06:44:30,415 INFO r.o.TestHW [main] Target (subscribe button) was clicked

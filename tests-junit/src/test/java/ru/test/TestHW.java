@@ -1,49 +1,52 @@
 package ru.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
-import java.util.List;
 
-import static org.junit.Assert.*;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class TestHW {
     private static final Logger logger = LogManager.getLogger("ru.otus.TestHW");
     private static WebDriver driver;
     private static WebDriverWait wait;
+    private static JavascriptExecutor executor;
 
     @Before
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
+        //options.addArguments("enable-automation");
+        //options.addArguments("--headless");
+        //options.addArguments("--window-size=1920,1080");
+        //options.addArguments("--no-sandbox");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--dns-prefetch-disable");
         options.addArguments("--disable-gpu");
+        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        executor = (JavascriptExecutor)driver;
     }
 
     @Test
     public void testHomeWork1() {
         logger.info("Home work #1");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(7));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(7));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -65,9 +68,9 @@ public class TestHW {
     @Test
     public void testHomeWork2_1() {
         logger.info("Home work #1 part 1");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -130,21 +133,22 @@ public class TestHW {
 
             element.sendKeys("97");
             logger.info("Before wait");
-            wait.until(x -> (((JavascriptExecutor) driver).executeScript("return window.jQuery != undefined && jQuery.active === 0")));
-
+            String script = "return window.jQuery != undefined && jQuery.active === 0";
+            wait.until(x -> (executor.executeScript(script)));
+            assertTrue((Boolean) executor.executeScript(script));
             logger.info("Changes have taken place");
-            File screenshot = ((TakesScreenshot) driver).
+            /*File screenshot = ((TakesScreenshot) driver). //for checking on file system
                     getScreenshotAs(OutputType.FILE);
             String path = "d:/screenshots/" + screenshot.getName();
             FileUtils.copyFile(screenshot, new File(path));
 
-            logger.info("Screenshot saved");
+            logger.info("Screenshot saved");*/
         } catch (NoSuchElementException ignored) {
             logger.error("Target (address) element doesn't exist");
             assert false;
-        } catch (IOException ignored) {
+        } /*catch (IOException ignored) {                   //for screenshot maker
             logger.error("Access to file denied");
-        }
+        }*/
     }
 
     @Test
@@ -177,6 +181,7 @@ public class TestHW {
         try {
             xPath = "//div[@class='faq-question js-faq-question']/div[contains(text(), 'Где посмотреть программу интересующего курса?')]";
             element = driver.findElement(By.xpath(xPath));
+            executor.executeScript("arguments[0].scrollIntoView(true);",element);
             element.click();
             logger.info("Target (text) load is complete");
         } catch (NoSuchElementException e) {
@@ -187,12 +192,53 @@ public class TestHW {
         try {
             String expectedText = "Программу курса в сжатом виде можно увидеть на странице курса после блока с преподавателями. Подробную программу курса можно скачать кликнув на “Скачать подробную программу курса”";
             xPath = "//div[@class='faq-question js-faq-question']/div[contains(text(), '" + expectedText + "')]";
-            //element = driver.findElement(By.xpath(xPath));
             assertTrue(driver.findElement(By.xpath(xPath)).isDisplayed());
-            Thread.sleep(5000);
             logger.info("Target (text) is displayed");
-        } catch (NoSuchElementException | InterruptedException e) {
+        } catch (NoSuchElementException e) {
             logger.error("Target text doesn't exist");
+            assert false;
+        }
+    }
+
+    @Test
+    public void testHomeWork2_4() {
+        logger.info("Home work #2 part 4");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(5));
+        driver.manage().window().maximize();
+        logger.info("Timeouts are configured");
+
+
+        driver.get("http://www.otus.ru/");
+        logger.info("Root page load is complete");
+
+        WebElement element;
+        String xPath;
+
+        try {
+            xPath = "//form[@class='footer2__subscribe js-subscribe']/input[@class='input footer2__subscribe-input']";
+            element = driver.findElement(By.xpath(xPath));
+            executor.executeScript("arguments[0].scrollIntoView(true);",element);
+            element.sendKeys("test@test.com");
+            logger.info("Target (subscribe field) was filled");
+        } catch (NoSuchElementException e) {
+            logger.error("Target (subscribe field) page doesn't exist");
+            assert false;
+        }
+
+        try {
+            xPath = "//form[@class='footer2__subscribe js-subscribe']/button[@class='footer2__subscribe-button button button_blue button_as-input']";
+            element = driver.findElement(By.xpath(xPath));
+            element.click();
+            logger.info("Target (subscribe button) was clicked");
+            xPath = "//div[@class='container__col container__col_4']/p[@class='subscribe-modal__success']";
+            element = driver.findElement(By.xpath(xPath));
+            String currentText = element.getText();
+            String expectedText = "Вы успешно подписались";
+            assertEquals(expectedText, currentText);
+        } catch (NoSuchElementException e) {
+            logger.error("Target (subscribe button) doesn't exist");
             assert false;
         }
     }
