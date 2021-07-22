@@ -34,7 +34,7 @@ public class AbstractTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        wait = new WebDriverWait(driver, 7l, 100l);
         executor = (JavascriptExecutor) driver;
     }
 

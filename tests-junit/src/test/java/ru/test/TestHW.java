@@ -1,6 +1,7 @@
 package ru.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import javafx.util.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
@@ -10,11 +11,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -40,16 +44,16 @@ public class TestHW extends AbstractTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, 10l, 100l);
         executor = (JavascriptExecutor) driver;
     }
 
     @Test
     public void testHomeWork1() {
         logger.info("Home work #1");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -66,9 +70,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_1() {
         logger.info("Home work #1 part 1");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -97,7 +101,7 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_2() {
         logger.info("Home work #1 part 2");
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -120,9 +124,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_3() {
         logger.info("Home work #2 part 3");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -156,9 +160,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_4() {
         logger.info("Home work #2 part 4");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -193,93 +197,88 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork3_1() throws InterruptedException {
         logger.info("Home work #3 part 1");
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(3));
+        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
-
-
-        driver.get("https://yandex.ru/");
-        logger.info("Root page load is complete");
 
         WebElement element;
         String xPath;
         String expectedText;
+        String script = "return window.jQuery != undefined && jQuery.active === 0";
 
-        xPath = "//li[@class='services-new__list-item']/a[@data-id='market']";
-        element = driver.findElement(By.xpath(xPath));
-
-        Set<String> oldWindowsSet = driver.getWindowHandles();
-
-        element.click();
-        // ожидаем открытия и получаем дескриптор нового окна
-        String newWindow = wait
-                .until((ExpectedCondition<String>) driver -> {
-                            Set<String> newWindowsSet = driver.getWindowHandles();
-                            newWindowsSet.removeAll(oldWindowsSet);
-                            return newWindowsSet.size() > 0 ?
-                                    newWindowsSet.iterator().next() : null;
-                        }
-                );
-
-        driver.switchTo().window(newWindow);
-
-        expectedText = "Электроника";
-        xPath = "//a[@class='_3Lwc_UVFq4']/span[contains(text(), '" + expectedText + "')]";
-        element = driver.findElement(By.xpath(xPath));
-        element.click();
-
-        expectedText = "Смартфоны";
-        xPath = "//li/div/a[contains(text(), '" + expectedText + "')]";
-        element = driver.findElement(By.xpath(xPath));
-        element.click();
-
-        expectedText = "Samsung";
-        xPath = "//label/div/span[contains(text(), '" + expectedText + "')]";
-        element = driver.findElement(By.xpath(xPath));
-        element.click();
-
-        expectedText = "Xiaomi";
-        xPath = "//label/div/span[contains(text(), '" + expectedText + "')]";
-        element = driver.findElement(By.xpath(xPath));
-        element.click();
-
-        expectedText = "по цене";
-        xPath = "//div/div/button[contains(text(), '" + expectedText + "')]";
-        element = driver.findElement(By.xpath(xPath));
-        element.click();
-
-
-        /*String script = "return window.jQuery != undefined && jQuery.active === 0";
+        driver.get("https://www.220-volt.ru/");
         wait.until(x -> (executor.executeScript(script)));
-        assertTrue((Boolean) executor.executeScript(script));*/
+        logger.info("Root page load is complete");
 
-        //element.click();
+        xPath = "//ul[@class='js-menu']//a[@title='Электроинструменты']";
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
 
+        xPath = "//div[@class='catalogue-tile mhtspace-20']/ul/li/a[@title='Перфораторы']";
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
 
-        //assertTrue((Boolean) executor.executeScript(script));
-
-        xPath = "//div[@class='_3U6u5DZPMH _1EDYEYRfnr cia-vs']/article[@class='_1_IxNTwqll cia-vs cia-cs']";
-        List<WebElement> elements = driver.findElements(By.xpath(xPath));
-
-
-
-        for (WebElement we : elements) {
-
-            logger.info(we.findElement(By.xpath(".//span[contains(text(), 'Смартфон')]")).getText());
-            logger.info(we.getAttribute("data-zone-data"));
+        xPath = "//ul[@class='characteristics-select']/li/span/input[@title='MAKITA']";
+        if (!wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).isSelected()) {
+            driver.findElement(By.xpath(xPath)).click();
         }
 
+        xPath = "//ul[@class='characteristics-select']/li/span/input[@title='ЗУБР']";
+        if (!wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).isSelected()) {
+            driver.findElement(By.xpath(xPath)).click();
+        }
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("filterSubm"))).click();
+
+        wait.until(x -> (executor.executeScript(script)));
+
+        xPath = "//span[@class='selection']//span[@class='select2-selection__arrow']";
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
+
+        xPath = "//ul[@class='select2-results__options']//span[@class='listing-select-icon1']";
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
+
+        wait.until(x -> (executor.executeScript(script)));
+
+        Pair<Integer, WebElement> zubr = new Pair<>(Integer.MAX_VALUE, null);
+        Pair<Integer, WebElement> makita = new Pair<>(Integer.MAX_VALUE, null);
+        int i = 1;
+        while (true) {
+            try {
+                xPath = "//ul[@id='product-list']/li[" + i + "]/div/div[@class = 'new-item-list-name']/a[contains(text(), 'Перфоратор')]";
+                String title = driver.findElement(By.xpath(xPath)).getText().toLowerCase();
+                logger.info("title - " + title);
+                if (title.contains("перфоратор зубр")) {
+                    xPath = "//ul[@id='product-list']/li[" + i + "]/div/div[@class='new-item-list-group']/div[@class='new-item-list-price-im']/ins";
+                    int price = Integer.parseInt(driver.findElement(By.xpath(xPath)).getText().replaceAll("\\D", ""));
+                    logger.info("price - " + price);
+                    if (price <= zubr.getKey()) {
+                        xPath = "//ul[@id='product-list']/li[" + i + "]/div/div/span[@class = 'new-item-list-compare-button']/label/i[@title = 'Добавить к сравнению']";
+                        element = driver.findElement(By.xpath(xPath));
+                        zubr = new Pair<>(price, element);
+                    }
+                } else if (title.contains("перфоратор makita")) {
+                    xPath = "//ul[@id='product-list']/li[" + i + "]/div/div[@class='new-item-list-group']/div[@class='new-item-list-price-im']/ins";
+                    int price = Integer.parseInt(driver.findElement(By.xpath(xPath)).getText().replaceAll("\\D", ""));
+                    logger.info("price - " + price);
+                    if (price <= makita.getKey()) {
+                        xPath = "//ul[@id='product-list']/li[" + i + "]/div/div/span[@class = 'new-item-list-compare-button']/label/i[@title = 'Добавить к сравнению']";
+                        element = driver.findElement(By.xpath(xPath));
+                        makita = new Pair<>(price, element);
+                    }
+                }
+                i++;
+            } catch (NoSuchElementException ignored) {
+                break;
+            }
+        }
+        wait.until(ExpectedConditions.elementToBeClickable(zubr.getValue())).click();
+        xPath = "//td[@class='buttons']/div[@class='button line toCompare']/a[@class='activeButton']";
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(makita.getValue())).click();
+        xPath = "//tr/td/div/a[@href='/compare/']";
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
         Thread.sleep(5000);
-        logger.info(elements.size() + "- elements was found");
-
-
-
-        logger.info("Target (FAQ) page load is complete");
-
-
-
     }
 
 
