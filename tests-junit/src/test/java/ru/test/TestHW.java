@@ -10,14 +10,10 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -44,16 +40,16 @@ public class TestHW extends AbstractTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         logger.info("Driver loaded");
-        wait = new WebDriverWait(driver, 10l, 100l);
+        wait = new WebDriverWait(driver, 10L, 100L);
         executor = (JavascriptExecutor) driver;
     }
 
     @Test
     public void testHomeWork1() {
         logger.info("Home work #1");
-        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -70,9 +66,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_1() {
         logger.info("Home work #1 part 1");
-        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -101,7 +97,7 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_2() {
         logger.info("Home work #1 part 2");
-        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -124,9 +120,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_3() {
         logger.info("Home work #2 part 3");
-        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -160,9 +156,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork2_4() {
         logger.info("Home work #2 part 4");
-        driver.manage().timeouts().pageLoadTimeout(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(10l, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(10l, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -195,7 +191,7 @@ public class TestHW extends AbstractTest {
 
 
     @Test
-    public void testHomeWork3_1() throws InterruptedException {
+    public void testHomeWork3_1() {
         logger.info("Home work #3 part 1");
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -205,7 +201,6 @@ public class TestHW extends AbstractTest {
 
         WebElement element;
         String xPath;
-        String expectedText;
         String script = "return window.jQuery != undefined && jQuery.active === 0";
 
         driver.get("https://www.220-volt.ru/");
