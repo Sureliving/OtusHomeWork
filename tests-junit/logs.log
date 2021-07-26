@@ -1,58 +1,62 @@
-2021-07-23 00:54:33,106 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
-2021-07-23 00:54:33,137 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
-2021-07-23 00:54:36,108 INFO r.o.TestHW [main] Driver loaded
-2021-07-23 00:54:36,132 INFO r.o.TestHW [main] Home work #3 part 1
-2021-07-23 00:54:36,286 INFO r.o.TestHW [main] Timeouts are configured
-2021-07-23 00:54:41,271 INFO r.o.TestHW [main] Root page load is complete
-2021-07-23 00:55:02,185 INFO r.o.TestHW [main] title - перфоратор зубр п-22-650
-2021-07-23 00:55:02,274 INFO r.o.TestHW [main] price - 3579
-2021-07-23 00:55:02,339 INFO r.o.TestHW [main] title - перфоратор зубр зп-26-750 эк
-2021-07-23 00:55:02,373 INFO r.o.TestHW [main] price - 4669
-2021-07-23 00:55:02,406 INFO r.o.TestHW [main] title - перфоратор зубр зп-18-470
-2021-07-23 00:55:02,452 INFO r.o.TestHW [main] price - 5020
-2021-07-23 00:55:02,488 INFO r.o.TestHW [main] title - перфоратор зубр зп-30-900 к
-2021-07-23 00:55:02,540 INFO r.o.TestHW [main] price - 5889
-2021-07-23 00:55:02,576 INFO r.o.TestHW [main] title - перфоратор зубр зп-805эк
-2021-07-23 00:55:02,606 INFO r.o.TestHW [main] price - 6359
-2021-07-23 00:55:02,640 INFO r.o.TestHW [main] title - перфоратор зубр зп-22-650 к
-2021-07-23 00:55:02,684 INFO r.o.TestHW [main] price - 6380
-2021-07-23 00:55:02,731 INFO r.o.TestHW [main] title - перфоратор зубр п-26-800
-2021-07-23 00:55:02,777 INFO r.o.TestHW [main] price - 6530
-2021-07-23 00:55:02,823 INFO r.o.TestHW [main] title - перфоратор зубр зп-28-800 км
-2021-07-23 00:55:02,857 INFO r.o.TestHW [main] price - 6950
-2021-07-23 00:55:02,900 INFO r.o.TestHW [main] title - перфоратор makita m8701
-2021-07-23 00:55:02,934 INFO r.o.TestHW [main] price - 7069
-2021-07-23 00:55:03,009 INFO r.o.TestHW [main] title - перфоратор зубр зп-24-750 к
-2021-07-23 00:55:03,041 INFO r.o.TestHW [main] price - 7270
-2021-07-23 00:55:03,073 INFO r.o.TestHW [main] title - набор зубр перфоратор зп-24-750 к +фонарь lp-1800li
-2021-07-23 00:55:03,113 INFO r.o.TestHW [main] title - перфоратор зубр зп-26-800 к
-2021-07-23 00:55:03,153 INFO r.o.TestHW [main] price - 7810
-2021-07-23 00:55:03,197 INFO r.o.TestHW [main] title - перфоратор makita hr1840
-2021-07-23 00:55:03,241 INFO r.o.TestHW [main] price - 7839
-2021-07-23 00:55:03,275 INFO r.o.TestHW [main] title - перфоратор makita hr2470
-2021-07-23 00:55:03,318 INFO r.o.TestHW [main] price - 8285
-2021-07-23 00:55:03,350 INFO r.o.TestHW [main] title - перфоратор зубр зп-28-800 к
-2021-07-23 00:55:03,383 INFO r.o.TestHW [main] price - 8400
-2021-07-23 00:55:03,429 INFO r.o.TestHW [main] title - набор зубр перфоратор зп-28-800 к +фонарь lp-1800li
-2021-07-23 00:55:03,474 INFO r.o.TestHW [main] title - перфоратор makita hr1841f
-2021-07-23 00:55:03,506 INFO r.o.TestHW [main] price - 8436
-2021-07-23 00:55:03,545 INFO r.o.TestHW [main] title - перфоратор makita hr2470x15
-2021-07-23 00:55:03,583 INFO r.o.TestHW [main] price - 8669
-2021-07-23 00:55:03,616 INFO r.o.TestHW [main] title - перфоратор makita hr2300
-2021-07-23 00:55:03,678 INFO r.o.TestHW [main] price - 8949
-2021-07-23 00:55:03,753 INFO r.o.TestHW [main] title - перфоратор зубр зпв-30-900 вк
-2021-07-23 00:55:03,800 INFO r.o.TestHW [main] price - 9080
-2021-07-23 00:55:03,852 INFO r.o.TestHW [main] title - перфоратор зубр зп-32-1100 к
-2021-07-23 00:55:03,898 INFO r.o.TestHW [main] price - 9130
-2021-07-23 00:55:03,932 INFO r.o.TestHW [main] title - перфоратор makita hr2600
-2021-07-23 00:55:03,979 INFO r.o.TestHW [main] price - 9281
-2021-07-23 00:55:04,023 INFO r.o.TestHW [main] title - перфоратор makita hr2460
-2021-07-23 00:55:04,057 INFO r.o.TestHW [main] price - 9289
-2021-07-23 00:55:04,102 INFO r.o.TestHW [main] title - набор makita перфоратор hr2460 +рулетка 5м (pgc-80520)
-2021-07-23 00:55:04,138 INFO r.o.TestHW [main] title - перфоратор makita hr2630
-2021-07-23 00:55:04,182 INFO r.o.TestHW [main] price - 9559
-2021-07-23 00:55:04,211 INFO r.o.TestHW [main] title - перфоратор makita hr2475
-2021-07-23 00:55:04,243 INFO r.o.TestHW [main] price - 10419
-2021-07-23 00:55:04,353 INFO r.o.TestHW [main] title - набор makita перфоратор hr2475 +рулетка 5м (pgc-80520)
-2021-07-23 00:55:04,397 INFO r.o.TestHW [main] title - перфоратор makita dhr165z без акк. и зу
-2021-07-23 00:55:04,432 INFO r.o.TestHW [main] price - 10549
+2021-07-26 23:35:30,499 INFO i.g.b.w.WebDriverManager [main] Using chromedriver 91.0.4472.101 (resolved driver for Chrome 91)
+2021-07-26 23:35:30,525 INFO i.g.b.w.WebDriverManager [main] Exporting webdriver.chrome.driver as C:\Users\Main\.cache\selenium\chromedriver\win32\91.0.4472.101\chromedriver.exe
+2021-07-26 23:35:33,237 INFO r.o.TestHW [main] Driver loaded
+2021-07-26 23:35:33,257 INFO r.o.TestHW [main] Home work #3 part 1
+2021-07-26 23:35:33,455 INFO r.o.TestHW [main] Timeouts are configured
+2021-07-26 23:35:38,018 INFO r.o.TestHW [main] Root page load is complete
+2021-07-26 23:35:57,532 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-18-470
+2021-07-26 23:35:58,499 INFO r.o.TestHW [main] price - 5020
+2021-07-26 23:35:58,608 INFO r.o.TestHW [main] title - Перфоратор ЗУБР П-22-650
+2021-07-26 23:35:58,668 INFO r.o.TestHW [main] price - 5370
+2021-07-26 23:35:58,699 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-805ЭК
+2021-07-26 23:35:58,734 INFO r.o.TestHW [main] price - 6359
+2021-07-26 23:35:58,779 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-22-650 К
+2021-07-26 23:35:58,824 INFO r.o.TestHW [main] price - 6380
+2021-07-26 23:35:58,869 INFO r.o.TestHW [main] title - Перфоратор ЗУБР П-26-800
+2021-07-26 23:35:58,904 INFO r.o.TestHW [main] price - 6530
+2021-07-26 23:35:58,948 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-26-750 ЭК
+2021-07-26 23:35:58,983 INFO r.o.TestHW [main] price - 6590
+2021-07-26 23:35:59,026 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-28-800 КМ
+2021-07-26 23:35:59,060 INFO r.o.TestHW [main] price - 6950
+2021-07-26 23:35:59,103 INFO r.o.TestHW [main] title - Перфоратор MAKITA M8701
+2021-07-26 23:35:59,135 INFO r.o.TestHW [main] price - 7069
+2021-07-26 23:35:59,201 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-24-750 К
+2021-07-26 23:35:59,246 INFO r.o.TestHW [main] price - 7270
+2021-07-26 23:35:59,291 INFO r.o.TestHW [main] title - Набор ЗУБР Перфоратор ЗП-24-750 К +Фонарь LP-1800Li
+2021-07-26 23:35:59,336 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-26-800 К
+2021-07-26 23:35:59,369 INFO r.o.TestHW [main] price - 7810
+2021-07-26 23:35:59,399 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR1840
+2021-07-26 23:35:59,432 INFO r.o.TestHW [main] price - 7839
+2021-07-26 23:35:59,486 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2470
+2021-07-26 23:35:59,570 INFO r.o.TestHW [main] price - 8285
+2021-07-26 23:35:59,603 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-28-800 К
+2021-07-26 23:35:59,635 INFO r.o.TestHW [main] price - 8400
+2021-07-26 23:35:59,668 INFO r.o.TestHW [main] title - Набор ЗУБР Перфоратор ЗП-28-800 К +Фонарь LP-1800Li
+2021-07-26 23:35:59,698 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR1841F
+2021-07-26 23:35:59,733 INFO r.o.TestHW [main] price - 8436
+2021-07-26 23:35:59,764 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2470X15
+2021-07-26 23:35:59,798 INFO r.o.TestHW [main] price - 8669
+2021-07-26 23:35:59,841 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-30-900 К
+2021-07-26 23:35:59,875 INFO r.o.TestHW [main] price - 8720
+2021-07-26 23:35:59,926 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2300
+2021-07-26 23:35:59,972 INFO r.o.TestHW [main] price - 8949
+2021-07-26 23:36:00,024 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗПВ-30-900 ВК
+2021-07-26 23:36:00,070 INFO r.o.TestHW [main] price - 9080
+2021-07-26 23:36:00,107 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗП-32-1100 К
+2021-07-26 23:36:00,141 INFO r.o.TestHW [main] price - 9130
+2021-07-26 23:36:00,172 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2600
+2021-07-26 23:36:00,206 INFO r.o.TestHW [main] price - 9281
+2021-07-26 23:36:00,252 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2460
+2021-07-26 23:36:00,299 INFO r.o.TestHW [main] price - 9289
+2021-07-26 23:36:00,347 INFO r.o.TestHW [main] title - Набор MAKITA Перфоратор HR2460 +Рулетка 5м (PGC-80520)
+2021-07-26 23:36:00,396 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2630
+2021-07-26 23:36:00,440 INFO r.o.TestHW [main] price - 9559
+2021-07-26 23:36:00,485 INFO r.o.TestHW [main] title - Перфоратор MAKITA HR2475
+2021-07-26 23:36:00,582 INFO r.o.TestHW [main] price - 10378
+2021-07-26 23:36:00,809 INFO r.o.TestHW [main] title - Набор MAKITA Перфоратор HR2475 +Рулетка 5м (PGC-80520)
+2021-07-26 23:36:00,850 INFO r.o.TestHW [main] title - Перфоратор MAKITA DHR165Z без акк. и ЗУ
+2021-07-26 23:36:00,892 INFO r.o.TestHW [main] price - 10547
+2021-07-26 23:36:00,946 INFO r.o.TestHW [main] title - Перфоратор MAKITA DHR171Z без акк. и з.у
+2021-07-26 23:36:00,986 INFO r.o.TestHW [main] price - 10969
+2021-07-26 23:36:01,046 INFO r.o.TestHW [main] title - Перфоратор ЗУБР ЗПМ-38-1100 ЭК
+2021-07-26 23:36:01,102 INFO r.o.TestHW [main] price - 11099

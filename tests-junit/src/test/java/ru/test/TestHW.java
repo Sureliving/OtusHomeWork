@@ -197,9 +197,9 @@ public class TestHW extends AbstractTest {
     @Test
     public void testHomeWork3_1() throws InterruptedException {
         logger.info("Home work #3 part 1");
-        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         logger.info("Timeouts are configured");
 
@@ -218,14 +218,16 @@ public class TestHW extends AbstractTest {
         xPath = "//div[@class='catalogue-tile mhtspace-20']/ul/li/a[@title='Перфораторы']";
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
 
+        wait.until(x -> (executor.executeScript(script)));
+
         xPath = "//ul[@class='characteristics-select']/li/span/input[@title='MAKITA']";
-        if (!wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).isSelected()) {
-            driver.findElement(By.xpath(xPath)).click();
+        while (!wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).isSelected()) {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
         }
 
         xPath = "//ul[@class='characteristics-select']/li/span/input[@title='ЗУБР']";
-        if (!wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).isSelected()) {
-            driver.findElement(By.xpath(xPath)).click();
+        while (!wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).isSelected()) {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
         }
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("filterSubm"))).click();
@@ -241,14 +243,18 @@ public class TestHW extends AbstractTest {
         wait.until(x -> (executor.executeScript(script)));
 
         Pair<Integer, WebElement> zubr = new Pair<>(Integer.MAX_VALUE, null);
+        String zubrTtl = "";
+
         Pair<Integer, WebElement> makita = new Pair<>(Integer.MAX_VALUE, null);
+        String makitaTtl = "";
+
         int i = 1;
         while (true) {
             try {
                 xPath = "//ul[@id='product-list']/li[" + i + "]/div/div[@class = 'new-item-list-name']/a[contains(text(), 'Перфоратор')]";
-                String title = driver.findElement(By.xpath(xPath)).getText().toLowerCase();
+                String title = driver.findElement(By.xpath(xPath)).getText();
                 logger.info("title - " + title);
-                if (title.contains("перфоратор зубр")) {
+                if (title.toLowerCase().contains("перфоратор зубр")) {
                     xPath = "//ul[@id='product-list']/li[" + i + "]/div/div[@class='new-item-list-group']/div[@class='new-item-list-price-im']/ins";
                     int price = Integer.parseInt(driver.findElement(By.xpath(xPath)).getText().replaceAll("\\D", ""));
                     logger.info("price - " + price);
@@ -256,8 +262,9 @@ public class TestHW extends AbstractTest {
                         xPath = "//ul[@id='product-list']/li[" + i + "]/div/div/span[@class = 'new-item-list-compare-button']/label/i[@title = 'Добавить к сравнению']";
                         element = driver.findElement(By.xpath(xPath));
                         zubr = new Pair<>(price, element);
+                        zubrTtl = title;
                     }
-                } else if (title.contains("перфоратор makita")) {
+                } else if (title.toLowerCase().contains("перфоратор makita")) {
                     xPath = "//ul[@id='product-list']/li[" + i + "]/div/div[@class='new-item-list-group']/div[@class='new-item-list-price-im']/ins";
                     int price = Integer.parseInt(driver.findElement(By.xpath(xPath)).getText().replaceAll("\\D", ""));
                     logger.info("price - " + price);
@@ -265,6 +272,7 @@ public class TestHW extends AbstractTest {
                         xPath = "//ul[@id='product-list']/li[" + i + "]/div/div/span[@class = 'new-item-list-compare-button']/label/i[@title = 'Добавить к сравнению']";
                         element = driver.findElement(By.xpath(xPath));
                         makita = new Pair<>(price, element);
+                        makitaTtl = title;
                     }
                 }
                 i++;
@@ -272,13 +280,28 @@ public class TestHW extends AbstractTest {
                 break;
             }
         }
+        String oldTab = driver.getWindowHandle();
+
         wait.until(ExpectedConditions.elementToBeClickable(zubr.getValue())).click();
         xPath = "//td[@class='buttons']/div[@class='button line toCompare']/a[@class='activeButton']";
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
         wait.until(ExpectedConditions.elementToBeClickable(makita.getValue())).click();
         xPath = "//tr/td/div/a[@href='/compare/']";
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xPath))).click();
-        Thread.sleep(5000);
+
+
+        ArrayList<String> newTab = new ArrayList<>(driver.getWindowHandles());
+        newTab.remove(oldTab);
+        driver.switchTo().window(newTab.get(0));
+
+        wait.until(x -> (executor.executeScript(script)));
+
+        xPath = "//a[@data-product-title = '" + zubrTtl + "']";
+        assertTrue("Zubr is not displayed", driver.findElement(By.xpath(xPath)).isDisplayed());
+
+        xPath = "//a[@data-product-title = '" + makitaTtl + "']";
+        assertTrue("Makita is not displayed", driver.findElement(By.xpath(xPath)).isDisplayed());
+
     }
 
 
